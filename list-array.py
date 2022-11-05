@@ -35,20 +35,40 @@ import time
 """
 PROGRAM PREFACE, MENU, AND OPTIONS
 """
-def initiate():
-    os.system('cls')
-    opt_array = [71, 82, 32, 1, 5, 87, 20, 29, 81, 90]
-    print(f"\n\033[1mList Array:\033[0m \033[33;1m{opt_array}\033[0m\n")
-    critTitle = '{Ttl}'.format(Ttl = "\033[32;1mPROGRAM MENU AND OPTIONS\033[0m\n")
-    varA = '{crtA}'.format(crtA = "\033[34;1m1.\033[0m \"Add\" an element.\033[0m\n")
-    varB = '{crtB}'.format(crtB = "\033[34;1m2.\033[0m \"Insert\" an element.\033[0m\n")
-    varC = '{crtC}'.format(crtC = "\033[34;1m3.\033[0m \"Modify\" an element.\033[0m\n")
-    varD = '{crtD}'.format(crtD = "\033[34;1m4.\033[0m \"Delete\" an element.\033[0m\n")
-    varE = '{crtE}'.format(crtE = "\033[34;1m5.\033[0m \"Arrange\" in ascending order.\033[0m\n")
-    varF = '{crtF}'.format(crtF = "\033[34;1m6.\033[0m \"Arrange\" in descending order.\033[0m\n")
-    print(f"{critTitle}{varA}{varB}{varC}{varD}{varE}{varF}")
 
-initiate()
+os.system('cls')
+opt_array = [71, 82, 32, 1, 5, 87, 20, 29, 81, 90]
+print(f"\n\033[1mList Array:\033[0m \033[33;1m{opt_array}\033[0m\n")
+critTitle = '{Ttl}'.format(Ttl = "\033[32;1mPROGRAM MENU AND OPTIONS\033[0m\n")
+varA = '{crtA}'.format(crtA = "\033[34;1m1.\033[0m \"Add\" an element.\033[0m\n")
+varB = '{crtB}'.format(crtB = "\033[34;1m2.\033[0m \"Insert\" an element.\033[0m\n")
+varC = '{crtC}'.format(crtC = "\033[34;1m3.\033[0m \"Modify\" an element.\033[0m\n")
+varD = '{crtD}'.format(crtD = "\033[34;1m4.\033[0m \"Delete\" an element.\033[0m\n")
+varE = '{crtE}'.format(crtE = "\033[34;1m5.\033[0m \"Arrange\" in ascending order.\033[0m\n")
+varF = '{crtF}'.format(crtF = "\033[34;1m6.\033[0m \"Arrange\" in descending order.\033[0m\n")
+print(f"{critTitle}{varA}{varB}{varC}{varD}{varE}{varF}")
 
 time.sleep(1)
-userInpt = input("Choose an attribute you want to execute \033[34;1m(1-6)\033[0m: ")
+userInput = float(input("Choose an attribute you want to execute \033[34;1m(1-6)\033[0m: "))
+
+if userInput == 1:
+    os.system('cls')
+    time.sleep(1)
+    varA_Int = int(input("\nType and enter the element you want to \"add\" : "))
+    opt_array.append(varA_Int); print(f"\nThe new list becomes {opt_array}")
+
+elif userInput == 2:
+    os.system('cls')
+    print(f"\n\033[1mList Array:\033[0m \033[33;1m{opt_array}\033[0m\n")
+    time.sleep(1)
+    varB_idx = int(input("\nType and enter the position of \'index\' you want your element to be inserted: "))
+    varB_Int = int(input("\nType and enter the number you want to \"insert\": "))
+    opt_array.insert(varB_idx, varB_Int); print(f"\nThe new list becomes {opt_array}\n")
+
+elif userInput == 3:
+    os.system('cls')
+    print(f"\nList Array = {opt_array}")
+    time.sleep(1)
+    varC_idx = int(input("\nType and enter the position of \'index\' you want your element to be modified: "))
+    varC_Int = int(input("\nType and enter your number to be replaced: "))
+    opt_array.pop(varC_idx); opt_array.insert(varC_idx, varC_Int); os.system('cls'); print(f"\nThe new list becomes {opt_array}\n")
